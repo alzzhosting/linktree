@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Bio</title>
+    <link rel="stylesheet" href="/aset/style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <h2>Link Bio Sederhana</h2>
+        <span>Selamat Datang DiBio Saya 🙋</span>
+        <div id="bioContent"></div>
+        <footer>
+          &copy; 2025 Dibuat Oleh <a href="https://cdn.kenzcode.biz.id">Kenz Market</a>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const starsContainer = document.querySelector(".stars");
+            for (let i = 0; i < 100; i++) {
+                let star = document.createElement("div");
+                star.className = "star";
+                star.style.top = `${Math.random() * 100}vh`;
+                star.style.left = `${Math.random() * 100}vw`;
+                star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                starsContainer.appendChild(star);
+            }
+        });
+
+        let urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has("id")) {
+            let bioID = urlParams.get("id");
+            let bioData = JSON.parse(localStorage.getItem(bioID));
+
+            if (bioData) {
+                document.getElementById("bioContent").innerHTML = `
+                    <div class="button-container">
+                        <button onclick="window.open('${bioData.tiktok}', '_blank')">TikTok</button>
+                        ${bioData.instagram ? `<button onclick="window.open('${bioData.instagram}', '_blank')">Instagram</button>` : ""}
+                        <button onclick="window.open('https://wa.me/${bioData.whatsapp}', '_blank')">WhatsApp</button>
+                        ${bioData.youtube ? `<button onclick="window.open('${bioData.youtube}', '_blank')">YouTube</button>` : ""}
+                    </div>
+                `;
+            } else {
+                document.getElementById("bioContent").innerHTML = "<p>Data tidak ditemukan!</p>";
+            }
+        }
+    </script>
+</body>
+</html>

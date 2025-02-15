@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buat Link Bio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Buat Link Bio</h2>
+        <form id="bioForm">
+            <input type="text" id="name" placeholder="Nama (tanpa spasi)" required>
+            <input type="url" id="tiktok" placeholder="Link TikTok" required>
+            <input type="url" id="instagram" placeholder="Link Instagram (Opsional)">
+            <input type="tel" id="whatsapp" placeholder="Nomor WhatsApp (62xxxx)" required>
+            <input type="url" id="youtube" placeholder="Link YouTube (Opsional)">
+            <button type="submit">Buat Link</button>
+        </form>
+        <p id="generatedLink"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
